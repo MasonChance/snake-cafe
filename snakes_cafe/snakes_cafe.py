@@ -44,19 +44,40 @@ print(app_block_seperator)
 print('*' * 2 + ' What would you like to order? ' + '*' * 2)
 print(app_block_seperator)
 
-user_input = input("Please enter an item to order: ")
+def take_order():
+  user_input = ' '
 
-# confirm processing of user input and append the orders dictionary
-orders[user_input] = 0
-print("*" * 2 + " " + str(orders[user_input]) + " " + user_input + " has been added to your meal " + "*" * 2) 
-orders[user_input] += 1
+  while(user_input != 'quit'):
+    user_input = input(' >')
+    # confirm processing of user input and append the orders dictionary
+    if (user_input in orders):
+      orders[user_input] += 1
+      order_confirmation(user_input)
+    elif(user_input == 'quit'):
+      # get keys of the Order dictionary
+      ticket = list(orders.keys())
+      
+      # print Orders dictionary 
+      for check in ticket:
+        print(ticket[ticket.index(check)] + " " + str(orders[check]) + "\n")
 
-# get keys of the Order dictionary
-ticket = list(orders.keys())
+      break
+    
+    else:
+      orders[user_input] = 1
 
-# print Orders dictionary 
-for check in ticket:
-  print(ticket[ticket.index(check)] + " " + str(orders[check]) + "\n")
+      order_confirmation(user_input)
+      continue
+
+def order_confirmation(user_input):
+   print("*" * 2 + " " + str(orders[user_input]) + " " + user_input + " has been added to your meal " + "*" * 2)
+
+
+take_order()    
+      
+ 
+
+
 
 
 
