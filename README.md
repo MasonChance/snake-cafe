@@ -33,3 +33,4 @@ The purpose of this utility is to accquaint myself with python environment setup
   **Notes**: program now runs until user types: 'quit'
   inputs are sensitive to spaces, future fix includes adding input normalization and verification. orders are updated correctly and total order prints on quit. 
   ```
+
